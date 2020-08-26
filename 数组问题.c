@@ -1,0 +1,44 @@
+#include<stdio.h>
+int main()
+{
+	float s[5][5],x;
+	int min,max,i,j,max_i,max_j,min_i,min_j;
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			scanf("%f",&x);
+			s[i][j]=x;
+		}
+	 } 
+	max=min=s[0][0];
+	min_i=min_j=max_i=max_j=0;
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			if(s[i][j]>max)
+			{
+				max_i=i;
+				max_j=j;
+				max=s[i][j];
+			}
+			if(s[i][j]<min)
+			{
+				min_i=i;
+				min_j=j;
+				min=s[i][j];
+			}
+		}
+	 }
+	s[max_i][max_j]=min;
+	s[min_i][min_j]=max;
+	for(i=0;i<5;i++)
+	{
+		printf("\n");
+		for(j=0;j<5;j++)
+		{
+			printf("%5.1f",s[i][j]);
+		}
+	 } 
+}
